@@ -24,8 +24,8 @@
 
 * Для вывода всех статей источника
 
->>> from News_Grabber import News_Grabber
->>> ng = News_Grabber()
+>>> from news_grabber import Grabber
+>>> ng = Grabber()
 >>> news = ng.get('interfax', limit = 3)
 >>> print(news)
 
@@ -34,3 +34,16 @@
 >>> url = news[0]['link']
 >>> data = ng.grub(url)
 >>> print(data)
+
+* Для добавления источника
+
+>>> ng = Grabber()
+>>> ng.setNewUrl('url/rss', 'name')
+
+
+## Запуск расширенного функционала
+Для запуска проекта надо выполнить команду
+```
+python manage.py runserver
+```
+После чего перейти по адресу http://127.0.0.1:8000/. На этой странице отобразятся по три новости из каждого источника, указанного в файле sources.txt. При обновлении страницы, обновляется список актуальных новостей.
