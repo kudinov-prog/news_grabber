@@ -1,0 +1,10 @@
+{% for rss in index %}
+    {% for item in rss %}
+    <div>
+        <a>{{ item.published}}</a>
+        <a>{{ item.title }}</a>
+        <a>{{ item.desc}}</a>
+        <a>{{ item.link }}</a>
+    </div>
+    {% endfor %}
+{% endfor %}

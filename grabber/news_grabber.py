@@ -1,11 +1,12 @@
 import feedparser
 from newspaper import Article
 
+
 class Grabber():
     """ Класс граббера. В словаре sources находятся ссылки для парсинга
     """
 
-    sources ={ 
+    sources = { 
         'interfax':'http://www.interfax.ru/rss.asp',
         'lenta':'http://lenta.ru/rss',
         'kommersant':'http://www.kommersant.ru/RSS/news.xml',
@@ -15,7 +16,7 @@ class Grabber():
     def setNewUrl(self, url, name):
         self.sources[name] = url
 
-    def get(self, sources, limit = None):
+    def get(self, sources, limit = 3):
 
         feed = feedparser.parse(self.sources.get(sources))
         
@@ -41,5 +42,7 @@ class Grabber():
         return {
             'title': article.title,
             'image': article.top_image,
-            'content': [paragraph for paragraph in article.text.split('\n') if paragraph]
+            'content': [
+                paragraph for paragraph in article.text.split('\n') if paragraph
+                ]
         }
