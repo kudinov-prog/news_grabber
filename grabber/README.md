@@ -23,22 +23,25 @@
 Для запуска базового функционала достаточно файла news_grabber.py. Через командную строку запускаем:
 
 * Для вывода всех статей источника
-
+```
 >>> from news_grabber import Grabber
 >>> ng = Grabber()
 >>> news = ng.get('interfax', limit = 3)
 >>> print(news)
+```
 
 * Для вывода одной статьи
-
+```
 >>> url = news[0]['link']
 >>> data = ng.grub(url)
 >>> print(data)
+```
 
 * Для добавления источника
-
+```
 >>> ng = Grabber()
 >>> ng.setNewUrl('url/rss', 'name')
+```
 
 
 ## Запуск расширенного функционала
